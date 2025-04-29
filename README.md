@@ -1,8 +1,8 @@
-# 🪺 LinkNest
+# LinkNest
 
 LinkNest is a simple and fast link manager built for focus. Store your favorite links, organize them, and access them from anywhere.
 
-# ✨ Features
+# Features
 
 - 🔖 Save and manage your favorite links
 - 🏷️ Add tags to organize content
