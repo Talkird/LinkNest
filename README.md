@@ -1,76 +1,15 @@
-# Nuxt Minimal Starter
+🪺 LinkNest
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Save your links. Access them anytime.
+LinkNest is a simple and fast link manager built for focus. Store your favorite links, organize them, and access them from anywhere.
 
-## Setup
+⸻
 
-Make sure to install dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
-# LinkNest
+✨ Features
+• 🔖 Save and manage your favorite links
+• 🏷️ Add tags to organize content
+• 🌗 Dark mode & light mode support
+• ⚡️ Fast and clean UI with Nuxt UI
+• 🔥 Realtime database and authentication with Firebase
+• 📄 Articles and notes support (Markdown-ready)
+• 🔒 Private and secure — your data is yours

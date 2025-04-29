@@ -1,6 +1,6 @@
 <template>
   <header
-    class="bg-transparent flex flex-row p-4 w-full items-center justify-around font-medium text-xl backdrop-blur border-gray-500/25 border-b sticky top-0 z-50""
+    class="bg-transparent flex flex-row p-4 w-full items-center justify-evenly font-medium text-xl backdrop-blur border-gray-500/25 border-b sticky top-0 z-50""
   >
     <p class="text-3xl font-bold">Link<span class="text-primary">Nest</span></p>
     <div class="flex flex-row gap-8 text-sm">

@@ -6,7 +6,7 @@
       Save your links. Access them anytime.
     </h1>
     <p class="text-2xl text-center text-muted">
-      LinkNest is a fast, simple link manager to store, tag, and revisit the
+      LinkNest is a fast and simple platform to store, tag, and revisit the
       content you love — all in one place.
     </p>
 
