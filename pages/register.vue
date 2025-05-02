@@ -8,7 +8,11 @@ const password = ref("");
 const repeatPassword = ref("");
 
 const handleRegister = () => {
-  if (email.value && password.value) {
+  if (
+    email.value &&
+    password.value &&
+    password.value === repeatPassword.value
+  ) {
     createUserWithEmailAndPassword($auth, email.value, password.value)
       .then(() => {
         toast.add({
@@ -19,8 +23,6 @@ const handleRegister = () => {
       .catch((error) => {
         toast.add({ description: "Error while registering", title: "Error" });
       });
-  } else {
-    console.error("Email and password are required");
   }
 };
 </script>
@@ -65,12 +67,12 @@ const handleRegister = () => {
         />
       </UFormField>
 
-      <UButton type="submit" class="justify-center">Login</UButton>
+      <UButton type="submit" class="justify-center">Register</UButton>
 
       <p class="text-sm text-center text-muted">
-        Don’t have an account?
-        <NuxtLink to="/register" class="text-primary hover:underline"
-          >Sign up</NuxtLink
+        Already have an account?
+        <NuxtLink to="/login" class="text-primary hover:underline"
+          >Login</NuxtLink
         >
       </p>
     </div>

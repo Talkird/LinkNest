@@ -15,8 +15,6 @@ const handleLogin = () => {
       .catch((error) => {
         toast.add({ description: "Error logging in", title: "Error" });
       });
-  } else {
-    console.error("Email and password are required");
   }
 };
 </script>
