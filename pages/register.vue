@@ -7,7 +7,7 @@ const email = ref("");
 const password = ref("");
 const repeatPassword = ref("");
 
-const handleRegister = () => {
+const handleRegister = async () => {
   if (
     email.value &&
     password.value &&
@@ -19,9 +19,13 @@ const handleRegister = () => {
           description: "Account created successfully",
           title: "Success",
         });
+        email.value = "";
+        password.value = "";
+        repeatPassword.value = "";
       })
       .catch((error) => {
         toast.add({ description: "Error while registering", title: "Error" });
+        console.log(error);
       });
   }
 };
@@ -29,7 +33,7 @@ const handleRegister = () => {
 
 <template>
   <form
-    @submit="handleRegister"
+    @submit.prevent="handleRegister"
     id="login"
     class="flex flex-col items-center justify-center min-h-screen"
   >

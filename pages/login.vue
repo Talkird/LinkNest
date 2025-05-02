@@ -11,6 +11,8 @@ const handleLogin = () => {
     signInWithEmailAndPassword($auth, email.value, password.value)
       .then(() => {
         toast.add({ description: "Logged in successfully", title: "Success" });
+        email.value = "";
+        password.value = "";
       })
       .catch((error) => {
         toast.add({ description: "Error logging in", title: "Error" });
@@ -21,7 +23,7 @@ const handleLogin = () => {
 
 <template>
   <form
-    @submit="handleLogin"
+    @submit.prevent="handleLogin"
     id="login"
     class="flex flex-col items-center justify-center min-h-screen"
   >
