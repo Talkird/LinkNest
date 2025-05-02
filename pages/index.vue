@@ -1,5 +1,6 @@
 <template>
   <div
+    id="index"
     class="flex flex-1 flex-col items-center justify-center min-h-screen gap-8"
   >
     <h1 class="text-center text-7xl font-bold">
@@ -27,3 +28,9 @@
     </div>
   </div>
 </template>
+
+<style>
+#index {
+  background-image: url("/assets/images/waves.svg");
+}
+</style>

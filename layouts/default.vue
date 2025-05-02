@@ -2,9 +2,9 @@
   <div class="flex flex-col">
     <Header />
 
-    <main>
+    <UApp>
       <slot />
-    </main>
+    </UApp>
 
     <Footer />
   </div>
