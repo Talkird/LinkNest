@@ -12,18 +12,13 @@
     </p>
 
     <div class="flex flex-row gap-6">
-      <UButton
-        class="text-xl px-6 py-3 rounded-full"
-        trailing-icon="i-lucide-arrow-right"
-        size="xl"
-        >Get Started</UButton
-      >
-      <UButton
-        class="text-xl px-6 py-3 rounded-full"
-        variant="soft"
-        color="neutral"
-        size="xl"
-        >Learn More</UButton
+      <NuxtLink to="/register"
+        ><UButton
+          class="text-xl px-6 py-3 rounded-full"
+          trailing-icon="i-lucide-arrow-right"
+          size="xl"
+          >Get Started</UButton
+        ></NuxtLink
       >
     </div>
   </div>
