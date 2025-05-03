@@ -92,7 +92,9 @@ const handleRegister = async () => {
         />
       </UFormField>
 
-      <UButton size="xl" type="submit" class="justify-center">Register</UButton>
+      <UButton variant="subtle" size="xl" type="submit" class="justify-center"
+        >Register</UButton
+      >
 
       <GoogleSignInButton />
 

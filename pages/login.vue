@@ -60,7 +60,9 @@ const handleLogin = async () => {
         />
       </UFormField>
 
-      <UButton size="xl" type="submit" class="justify-center">Login</UButton>
+      <UButton variant="subtle" size="xl" type="submit" class="justify-center"
+        >Login</UButton
+      >
 
       <GoogleSignInButton />
 
