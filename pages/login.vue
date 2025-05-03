@@ -1,22 +1,30 @@
 <script setup lang="ts">
-import { signInWithEmailAndPassword } from "firebase/auth";
-const { $auth }: any = useNuxtApp();
-const toast = useToast();
+import { useUserStore } from "@/stores/user";
+import { useToast } from "#imports";
 
 const email = ref("");
 const password = ref("");
+const toast = useToast();
+const userStore = useUserStore();
 
-const handleLogin = () => {
+const handleLogin = async () => {
   if (email.value && password.value) {
-    signInWithEmailAndPassword($auth, email.value, password.value)
-      .then(() => {
-        toast.add({ description: "Logged in successfully", title: "Success" });
-        email.value = "";
-        password.value = "";
-      })
-      .catch((error) => {
-        toast.add({ description: "Error logging in", title: "Error" });
+    try {
+      await userStore.login(email.value, password.value);
+      toast.add({
+        description: "Logged in successfully",
+        title: "Success",
+        color: "success",
       });
+      email.value = "";
+      password.value = "";
+    } catch (error: any) {
+      toast.add({
+        description: error.message,
+        title: "Error",
+        color: "error",
+      });
+    }
   }
 };
 </script>
@@ -32,7 +40,7 @@ const handleLogin = () => {
     >
       <h1 class="text-5xl mb-4 font-semibold text-center">Welcome Back</h1>
 
-      <UFormField label="Email" help="We won't share your email.">
+      <UFormField required label="Email">
         <UInput
           v-model="email"
           class="w-full"
@@ -41,7 +49,7 @@ const handleLogin = () => {
         />
       </UFormField>
 
-      <UFormField label="Password">
+      <UFormField required label="Password">
         <UInput
           v-model="password"
           class="w-full"
@@ -51,7 +59,9 @@ const handleLogin = () => {
         />
       </UFormField>
 
-      <UButton type="submit" class="justify-center">Login</UButton>
+      <UButton size="xl" type="submit" class="justify-center">Login</UButton>
+
+      <GoogleSignInButton />
 
       <p class="text-sm text-center text-muted">
         Don’t have an account?

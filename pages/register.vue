@@ -1,32 +1,44 @@
 <script setup lang="ts">
-import { createUserWithEmailAndPassword } from "firebase/auth";
-const { $auth }: any = useNuxtApp();
-const toast = useToast();
+import { useUserStore } from "@/stores/user";
+import { useToast } from "#imports";
 
 const email = ref("");
 const password = ref("");
 const repeatPassword = ref("");
 
+const toast = useToast();
+const userStore = useUserStore();
+
 const handleRegister = async () => {
   if (
-    email.value &&
-    password.value &&
-    password.value === repeatPassword.value
+    !email.value ||
+    !password.value ||
+    password.value !== repeatPassword.value
   ) {
-    createUserWithEmailAndPassword($auth, email.value, password.value)
-      .then(() => {
-        toast.add({
-          description: "Account created successfully",
-          title: "Success",
-        });
-        email.value = "";
-        password.value = "";
-        repeatPassword.value = "";
-      })
-      .catch((error) => {
-        toast.add({ description: "Error while registering", title: "Error" });
-        console.log(error);
-      });
+    toast.add({
+      description: "Please fill out all fields correctly.",
+      title: "Validation Error",
+      color: "warning",
+    });
+    return;
+  }
+
+  try {
+    await userStore.register(email.value, password.value);
+    toast.add({
+      description: "Account created successfully",
+      title: "Success",
+      color: "success",
+    });
+    email.value = "";
+    password.value = "";
+    repeatPassword.value = "";
+  } catch (error: any) {
+    toast.add({
+      description: error.message,
+      title: "Error",
+      color: "error",
+    });
   }
 };
 </script>
@@ -42,7 +54,11 @@ const handleRegister = async () => {
     >
       <h1 class="text-5xl mb-4 font-semibold text-center">Sign Up</h1>
 
-      <UFormField label="Email" help="We won't share your email.">
+      <UFormField
+        required
+        label="Email"
+        description="We'll never share your email with anyone else."
+      >
         <UInput
           v-model="email"
           class="w-full"
@@ -51,7 +67,11 @@ const handleRegister = async () => {
         />
       </UFormField>
 
-      <UFormField label="Password">
+      <UFormField
+        required
+        label="Password"
+        description="Your password must be at least 6 characters long."
+      >
         <UInput
           v-model="password"
           class="w-full"
@@ -61,17 +81,19 @@ const handleRegister = async () => {
         />
       </UFormField>
 
-      <UFormField label="Repeat password">
+      <UFormField required label="Confirm your password">
         <UInput
           v-model="repeatPassword"
           class="w-full"
-          icon="i-lucide-refresh-cw"
-          placeholder="Enter your password again"
+          icon="i-lucide-shield-check"
+          placeholder="Make sure the passwords match"
           type="password"
         />
       </UFormField>
 
-      <UButton type="submit" class="justify-center">Register</UButton>
+      <UButton size="xl" type="submit" class="justify-center">Register</UButton>
+
+      <GoogleSignInButton />
 
       <p class="text-sm text-center text-muted">
         Already have an account?
