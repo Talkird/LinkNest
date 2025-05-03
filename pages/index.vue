@@ -24,7 +24,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 #index {
   background-image: url("/assets/images/waves.svg");
 }

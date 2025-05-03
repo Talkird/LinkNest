@@ -19,7 +19,6 @@ const handleLogin = async () => {
       email.value = "";
       password.value = "";
       router.push("/links");
-      
     } catch (error: any) {
       toast.add({
         description: error.message,
@@ -75,7 +74,7 @@ const handleLogin = async () => {
   </form>
 </template>
 
-<style>
+<style scoped>
 #login {
   background-image: url("/assets//images/circle.svg");
 }

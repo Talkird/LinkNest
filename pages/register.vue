@@ -47,7 +47,7 @@ const handleRegister = async () => {
 <template>
   <form
     @submit.prevent="handleRegister"
-    id="login"
+    id="register"
     class="flex flex-col items-center justify-center min-h-screen"
   >
     <div
@@ -106,8 +106,8 @@ const handleRegister = async () => {
   </form>
 </template>
 
-<style>
-#login {
+<style scoped>
+#register {
   background-image: url("/assets//images/circle.svg");
 }
 </style>
