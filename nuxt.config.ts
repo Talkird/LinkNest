@@ -13,6 +13,6 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["@nuxt/ui", "@pinia/nuxt", "@formkit/auto-animate/nuxt"],
+  modules: ["@nuxt/ui", "@pinia/nuxt"],
   css: ["~/assets/css/main.css"],
 });
