@@ -1,9 +1,17 @@
 <script setup lang="ts">
 import { useUserStore } from "@/stores/user";
 const userStore = useUserStore();
+const router = useRouter();
+const toast = useToast();
 
 const handleLogout = async () => {
   await userStore.logout();
+  toast.add({
+    description: "Logged out successfully",
+    title: "Success",
+    color: "success",
+  });
+  router.push("/");
 };
 </script>
 

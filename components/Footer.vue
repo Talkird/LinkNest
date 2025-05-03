@@ -2,7 +2,9 @@
   <footer
     class="flex flex-row p-4 items-center justify-around flex-1 gap-6 font-medium text-sm border-gray-500/25 border-t text-muted"
   >
-    <p>Copyright © 2025. All rights reserved.</p>
+    <p>
+      Made with love by <span class="text-primary font-semibold">Talkird</span>
+    </p>
     <a target="_blank" href="https://github.com/Talkird/LinkNest">
       <UButton
         icon="i-lucide-github"

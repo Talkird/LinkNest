@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { useUserStore } from "@/stores/user";
-import { useToast } from "#imports";
 
 const email = ref("");
 const password = ref("");
 const toast = useToast();
 const userStore = useUserStore();
+const router = useRouter();
 
 const handleLogin = async () => {
   if (email.value && password.value) {
@@ -18,6 +18,8 @@ const handleLogin = async () => {
       });
       email.value = "";
       password.value = "";
+      router.push("/links");
+      
     } catch (error: any) {
       toast.add({
         description: error.message,
